@@ -1,0 +1,25 @@
+---
+- name: Stop service mysql
+  ansible.builtin.service:
+    name: mysqld
+    state: stopped
+
+- name: Uninstall mysql-server
+  ansible.builtin.yum:
+    name: mysql*
+    state: absent
+
+- name: Remove all mysql files
+  ansible.builtin.file:
+    name: "{{item}}"
+    state: absent
+  with_items:
+    - /var/lib/mysql/
+    - /etc/mysql/
+    - /var/log/mysql
+
+- name: Remove user mysql
+  ansible.builtin.user:
+    name: mysql
+    state: absent
+    remove: yes

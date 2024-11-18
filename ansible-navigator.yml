@@ -1,0 +1,10 @@
+---
+ansible-navigator:
+  execution-environment:
+    image: hub01.jferre.local/mysql-ee-rhel8:latest
+    pull:
+      arguments:
+        - "--tls-verify=false"
+      policy: missing
+  playbook-artifact:
+    enable: false

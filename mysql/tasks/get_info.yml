@@ -1,0 +1,10 @@
+---
+- name: Get version from MySQL
+  community.mysql.mysql_info:
+    config_file: /root/.my.cnf
+    filter:
+      - version
+  register: ms_version
+
+- debug:
+    var: ms_version.version.full

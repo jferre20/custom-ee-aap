@@ -1,0 +1,13 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: 'hub01.jferre.local/ee-minimal-rhel8:latest'
+
+build_arg_defaults:
+  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: '--ignore-certs'
+
+dependencies:
+  galaxy: requirements.yml
+  #python: requirements.txt

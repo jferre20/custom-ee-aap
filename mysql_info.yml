@@ -1,0 +1,8 @@
+---
+- hosts: "{{ host }}"
+  vars:
+    ansible_python_interpreter: auto
+  tasks:
+    - include_role:
+        name: mysql
+        tasks_from: get_info
