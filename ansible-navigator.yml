@@ -1,8 +1,7 @@
 ---
 ansible-navigator:
   execution-environment:
-    #image: hub01.jferre.local/ee-minimal-rhel8:latest # WITHOUT MYSQL COLLLECTION
-    image: hub01.jferre.local/ee-mysql-rhel8:latest # WITH MYSQL COLLECTION
+    image: hub01.jferre.local/ee-mysql-custom:latest # WITH MYSQL COLLECTION
     pull:
     #  arguments:
     #    - "--tls-verify=false"
