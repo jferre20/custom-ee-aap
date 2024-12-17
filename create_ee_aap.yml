@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - vars/aap_credential.yml
+
+  tasks:
+    - name: Create new execution environment
+      ansible.controller.execution_environment:
+        controller_host: "https://{{ aap['controller'] }}"
+        controller_oauthtoken: "{{ aap['token'] }}"
+        name: "{{ ee_name }}"
+        image: "{{ ee_image }}"
+        pull: missing
+        validate_certs: false
