@@ -12,7 +12,7 @@ NC='\033[0m'
 
 # BUILD IMAGE AND PUSH
 echo "LOGIN INTO PRIVATE HUB --------------------------------------------------------"
-podman login -u jferre  --password-stdin < .credential-hub $EE_HUB_HOST
+podman login -u jferre  --password-stdin < vars/.credential-hub $EE_HUB_HOST
 printf "\n"
 
 echo "BUILDING IMAGE USING EXECUTION ENVIRONMENT FILE -------------------------------"
