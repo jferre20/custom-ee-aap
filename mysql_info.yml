@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ vmname }}"
+- hosts: "srv02"
   vars:
     ansible_python_interpreter: auto
   tasks:

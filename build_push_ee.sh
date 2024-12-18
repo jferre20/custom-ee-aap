@@ -30,7 +30,7 @@ if ansible-builder build -v3 --tag $EE_HUB_HOST/$EE_NEW_IMAGE --file ee-files/ex
    else
       echo -e "${RED}The image $EE_NEW_IMAGE is not working! Please proceed to validate it.${NC}"
       rm -rf context/
-      for images in `podman images | grep -v docker | awk '{print $3}' | grep -v IMAGE`; do 
+      for images in `podman images | awk '{print $3}' | grep -v IMAGE`; do 
         podman rmi $images -f
       done
       podman logout $EE_HUB_HOST
@@ -40,7 +40,7 @@ else
    printf "\n"
    echo -e "${RED}ERROR TO CREATE NEW IMAGE FROM EXECUTION ENVIRONMENT!${NC}"
    rm -rf context/
-   for images in `podman images | grep -v docker | awk '{print $3}' | grep -v IMAGE`; do 
+   for images in `podman images | awk '{print $3}' | grep -v IMAGE`; do 
      podman rmi $images -f
    done
    podman logout $EE_HUB_HOST
@@ -51,7 +51,7 @@ printf "\n"
 
 echo "DELETING ALL IMAGES CREATED ON LOCALHOST"
 rm -rf context/
-for images in `podman images | grep -v docker | awk '{print $3}' | grep -v IMAGE`; do 
+for images in `podman images | awk '{print $3}' | grep -v IMAGE`; do 
   podman rmi $images -f
 done
 podman logout $EE_HUB_HOST
