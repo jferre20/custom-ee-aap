@@ -1,0 +1,21 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: 'hub-example-24.jferre.local/ee-supported-rhel8:latest'
+
+dependencies:
+  galaxy:
+    collections:
+      - name: community.general
+      - name: community.vmware
+      - name: codeaffen.phpipam
+
+additional_build_steps:
+  prepend_base:
+    - RUN pip3 install -U pip
+    - RUN microdnf install dnf
+
+# https://ansible.readthedocs.io/projects/builder/en/3.1.0/definition/
+# https://github.com/ansible/ansible-builder/issues/688
